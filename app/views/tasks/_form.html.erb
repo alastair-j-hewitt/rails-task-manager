@@ -1,0 +1,23 @@
+<%= form_with model: task, local: true do |form| %>
+  <% if task.errors.any? %>
+    <ul>
+      <% task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <p>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :details %>
+    <%= form.text_area :details %>
+  </p>
+  <p>
+    <%= form.check_box :completed %>
+    <%= form.label :completed %>
+  </p>
+  <%= form.submit %>
+<% end %>
